@@ -1,0 +1,158 @@
+InAmigos Foundation React Website - Project Summary
+
+Git Repository:
+https://github.com/Rohiyadaop/Inamigos.git
+
+Demo URL: https://inamigos-inky.vercel.app
+Not deployed yet. Add the live website URL here after deploying on Vercel, Netlify, or GitHub Pages.
+
+Project Type:
+React JS website built with Vite.
+
+Main Goal:
+The original static HTML/CSS awareness webpage was converted into a full React website for InAmigos Foundation. The new website looks more complete, modern, responsive, and suitable for project submission or live deployment.
+
+Files Added:
+
+1. package.json
+- Added React, React DOM, Vite, and Vite React plugin dependencies.
+- Added npm scripts:
+  - npm run dev
+  - npm run build
+  - npm run preview
+
+2. package-lock.json
+- Generated automatically after installing npm dependencies.
+- Locks the exact dependency versions used in the project.
+
+3. vite.config.js
+- Added Vite configuration for running the React project.
+- Enabled the React plugin.
+
+4. src/main.jsx
+- Added the React entry point.
+- Renders the main App component into the root div from index.html.
+- Imports the main stylesheet.
+
+5. src/App.jsx
+- Added the complete React website structure.
+- Added separate React sections for:
+  - Header
+  - Hero section
+  - Trust badges
+  - About section
+  - Programs section
+  - Impact section
+  - Stories section
+  - Volunteer section
+  - FAQ section
+  - Contact section
+  - Footer
+- Added responsive mobile menu functionality.
+- Added interactive program filters.
+- Added volunteer form demo submission message.
+- Added official contact, donation, and website links.
+
+6. src/styles.css
+- Added full responsive CSS styling for the React website.
+- Added modern layout, cards, buttons, gradients, shadows, mobile navigation, forms, and media queries.
+- Designed the website to work on desktop, tablet, and mobile screens.
+
+7. README.md
+- Added basic project information.
+- Added commands to run and build the website.
+- Added a short feature list.
+
+8. .gitignore
+- Added ignored folders and files:
+  - node_modules/
+  - dist/
+  - .vite/
+  - *.local
+
+Files Edited:
+
+1. index.html
+- Replaced the old static webpage content with a React root div.
+- Added the Vite module script pointing to /src/main.jsx.
+- Updated the page title and meta description.
+
+2. submission-notes.md
+- Updated the notes to match the new React + Vite project.
+- Added running instructions.
+- Added build instructions.
+- Listed the main React files.
+- Updated the submission note to explain that the project should be run through Vite.
+
+Files Removed:
+
+1. styles.css
+- Removed the old root-level CSS file.
+- Styling was moved into src/styles.css for the React project.
+
+Main Website Features:
+
+- Full React JS website layout.
+- Sticky header navigation.
+- Mobile responsive navigation menu.
+- Hero section with call-to-action buttons.
+- Trust/certification badges.
+- About NGO section.
+- Program cards for all major InAmigos projects.
+- Category filters for programs.
+- Impact statistics section.
+- Story/highlight cards.
+- Volunteer interest form.
+- FAQ accordion section.
+- Contact and donation call-to-action.
+- Footer with official references.
+- Fully responsive design.
+
+Official References Used:
+
+- Official website: https://inamigosfoundation.org.in/
+- Official About page: https://inamigosfoundation.org.in/page/About-Us
+- Official Contact page: https://inamigosfoundation.org.in/contact
+- Public LinkedIn page: https://www.linkedin.com/company/inamigos-foundation
+
+Important Project Facts Used:
+
+- InAmigos Foundation was founded on September 23, 2020.
+- Founder and CEO: Mr. Govind Shukla.
+- The NGO is presented as Section 8 registered, 80G and 12A certified, CSR-1 registered, NITI Aayog registered, and IAF ISO 9001:2015 certified.
+- Projects highlighted:
+  - Project SEVA
+  - Project Bachpanshala
+  - Project JEEV
+  - Project UDAAN
+  - Project PRAKRITI
+  - Project VIKAS
+- Public impact numbers used:
+  - 50,000+ meals and clothing support under SEVA
+  - 50+ stray animals fed daily under JEEV
+  - 20,000+ saplings under PRAKRITI
+  - 30,000+ interns trained under VIKAS
+  - 200 volunteers
+  - 28 states
+  - 6 causes
+  - 50,000 beneficiaries
+
+How To Run:
+
+1. Open the project folder.
+2. Run:
+   npm install
+3. Run:
+   npm run dev
+4. Open the local Vite URL shown in the terminal.
+
+How To Build:
+
+Run:
+npm run build
+
+Build output will be created in the dist folder.
+
+Deployment Note: https://inamigos-inky.vercel.app/#home
+
+After deploying the project, replace the Demo URL line at the top of this file with the final live website link.

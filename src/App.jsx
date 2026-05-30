@@ -6,6 +6,7 @@ const navLinks = [
   { label: 'Programs', href: '#programs' },
   { label: 'Impact', href: '#impact' },
   { label: 'Volunteer', href: '#volunteer' },
+  { label: 'Donate', href: '#donate' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -18,9 +19,9 @@ const trustBadges = [
 ];
 
 const metrics = [
-  { value: '50K+', label: 'beneficiaries highlighted' },
-  { value: '200+', label: 'volunteers connected' },
-  { value: '28', label: 'states reached' },
+  { value: '50K+', label: 'meals and essentials shared' },
+  { value: '30K+', label: 'youth and interns trained' },
+  { value: '20K+', label: 'saplings planted' },
   { value: '6', label: 'active focus areas' },
 ];
 
@@ -34,6 +35,7 @@ const programs = [
     summary:
       'Food and clothing support for underprivileged communities, with public information highlighting 50,000+ meals and essentials.',
     outcome: 'Dignity, relief, and basic support',
+    impact: '50K+ meals and essentials',
   },
   {
     title: 'Project Bachpanshala',
@@ -42,6 +44,7 @@ const programs = [
     summary:
       'Learning support for underprivileged children through school help, life skills, joyful learning, and digital basics.',
     outcome: 'Confidence, curiosity, and opportunity',
+    impact: 'Learning support for children',
   },
   {
     title: 'Project JEEV',
@@ -50,6 +53,7 @@ const programs = [
     summary:
       'Animal welfare work focused on feeding, rescue support, shelter care, and daily support for stray animals.',
     outcome: 'Compassion for voiceless lives',
+    impact: '50+ animals fed daily',
   },
   {
     title: 'Project UDAAN',
@@ -58,6 +62,7 @@ const programs = [
     summary:
       'Women empowerment through self-help groups, skill training, digital literacy, menstrual hygiene, and confidence-building.',
     outcome: 'Self-reliance and stronger communities',
+    impact: 'Skill-building for women',
   },
   {
     title: 'Project PRAKRITI',
@@ -66,6 +71,7 @@ const programs = [
     summary:
       'Sustainability initiatives including tree plantation, environmental awareness, and responsible community practices.',
     outcome: 'Cleaner, greener, safer futures',
+    impact: '20K+ saplings planted',
   },
   {
     title: 'Project VIKAS',
@@ -74,6 +80,7 @@ const programs = [
     summary:
       'Internship and skill-development pathways that help youth gain practical exposure and career readiness.',
     outcome: 'Employability and professional growth',
+    impact: '30K+ interns trained',
   },
 ];
 
@@ -97,6 +104,43 @@ const journeySteps = [
     title: 'Impact',
     text: 'Consistent community work creates visible change in education, care, environment, and livelihoods.',
   },
+];
+
+const timeline = [
+  { year: '2020', title: 'Foundation Started', text: 'Registered as a Section 8 non-profit with a community-first mission.' },
+  { year: '2021', title: 'Programs Expanded', text: 'Education, food support, animal care, and youth work became stronger pillars.' },
+  { year: '2024+', title: 'National Reach', text: 'Public-facing initiatives and internships helped the mission reach wider audiences.' },
+];
+
+const focusHighlights = [
+  { icon: '🍲', title: 'Immediate Relief', text: 'Food, clothing, and essentials for families facing difficult days.' },
+  { icon: '📚', title: 'Long-Term Learning', text: 'Education, digital literacy, and skill-building for brighter futures.' },
+  { icon: '🌱', title: 'Shared Responsibility', text: 'Care for animals, communities, women, youth, and the environment.' },
+];
+
+const reachStates = ['Chhattisgarh', 'Maharashtra', 'Delhi NCR', 'Uttar Pradesh', 'Odisha', 'Pan-India volunteers'];
+
+const donationExamples = [
+  { amount: '₹250', text: 'can support meal and essential drives.' },
+  { amount: '₹750', text: 'can help learning materials reach children.' },
+  { amount: '₹1,500', text: 'can strengthen animal care or plantation work.' },
+];
+
+const volunteerTestimonials = [
+  {
+    quote: 'Volunteering feels meaningful because every task connects to a real person or community need.',
+    name: 'Program volunteer',
+  },
+  {
+    quote: 'The best part is being able to contribute skills even when I cannot be physically present.',
+    name: 'Remote awareness intern',
+  },
+];
+
+const socialLinks = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/inamigos-foundation' },
+  { label: 'Instagram', href: 'https://www.instagram.com/inamigosfoundation/' },
+  { label: 'Facebook', href: 'https://www.facebook.com/inamigosfoundation/' },
 ];
 
 const stories = [
@@ -156,6 +200,7 @@ function Header() {
           type="button"
           aria-label="Toggle navigation menu"
           aria-expanded={isMenuOpen}
+          aria-controls="primary-navigation"
           onClick={() => setIsMenuOpen((current) => !current)}
         >
           <span />
@@ -163,9 +208,18 @@ function Header() {
           <span />
         </button>
 
-        <nav className={`nav-links ${isMenuOpen ? 'is-open' : ''}`} aria-label="Primary navigation">
+        <nav
+          id="primary-navigation"
+          className={`nav-links ${isMenuOpen ? 'is-open' : ''}`}
+          aria-label="Primary navigation"
+        >
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={closeMenu}>
+            <a
+              className={link.href === '#donate' ? 'nav-donate' : undefined}
+              key={link.href}
+              href={link.href}
+              onClick={closeMenu}
+            >
               {link.label}
             </a>
           ))}
@@ -180,8 +234,8 @@ function Hero() {
     <section id="home" className="hero section-pad">
       <div className="container hero-grid">
         <div className="hero-copy">
-          <p className="eyebrow">Uniting minds for change</p>
-          <h1>Building a kinder future through care, learning, and community action.</h1>
+          <p className="eyebrow">Uniting minds for measurable change</p>
+          <h1>Every act of care can become a life-changing ripple.</h1>
           <p className="hero-lead">
             InAmigos Foundation is a Section 8 registered non-profit founded on September 23, 2020 by
             Mr. Govind Shukla. Based in Chhattisgarh and active across India, it works across food
@@ -189,18 +243,15 @@ function Hero() {
           </p>
 
           <div className="hero-actions">
-            <a className="button button-primary" href="#volunteer">
+            <a className="button button-primary" href="#donate">
+              Donate Now
+            </a>
+            <a className="button button-secondary" href="#volunteer">
               Become a Volunteer
             </a>
-            <a
-              className="button button-secondary"
-              href="https://inamigosfoundation.org.in/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Official Website
-            </a>
           </div>
+
+          <p className="hero-note">Secure giving link, verified registrations, and clear ways to help.</p>
 
           <div className="metric-row" aria-label="Foundation public impact metrics">
             {metrics.map((metric) => (
@@ -215,6 +266,10 @@ function Hero() {
         <div className="hero-visual" aria-label="Illustrated program dashboard">
           <div className="orb orb-one" />
           <div className="orb orb-two" />
+          <div className="hero-photo-card" role="img" aria-label="Volunteers supporting education, food drives, and community care">
+            <span>Volunteer Action</span>
+            <strong>Hands-on support, hope in motion.</strong>
+          </div>
           <div className="impact-dashboard">
             <span className="dashboard-kicker">Live Mission Map</span>
             <h2>Food. Education. Women. Animals. Planet. Youth.</h2>
@@ -266,16 +321,31 @@ function About() {
             learning, strengthen women through skills, care for stray animals, protect nature, and
             prepare youth for better opportunities.
           </p>
+
+          <div className="highlight-grid" aria-label="Foundation focus highlights">
+            {focusHighlights.map((item) => (
+              <article className="highlight-card" key={item.title}>
+                <span aria-hidden="true">{item.icon}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
 
         <div className="about-panel">
-          <h3>Website Goals</h3>
-          <ul className="check-list">
-            <li>Explain the mission clearly for visitors.</li>
-            <li>Present every major project in one place.</li>
-            <li>Encourage volunteering, donations, and collaborations.</li>
-            <li>Make the NGO feel trustworthy, modern, and approachable.</li>
-          </ul>
+          <h3>Growth Timeline</h3>
+          <div className="timeline" aria-label="Foundation milestone timeline">
+            {timeline.map((item) => (
+              <article className="timeline-item" key={item.year}>
+                <span>{item.year}</span>
+                <div>
+                  <h4>{item.title}</h4>
+                  <p>{item.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -319,12 +389,14 @@ function Programs() {
         </div>
 
         <div className="program-grid">
-          {visiblePrograms.map((program) => (
+          {visiblePrograms.map((program, index) => (
             <article className="program-card" key={program.title}>
+              <div className={`program-image program-image-${index % 6}`} aria-hidden="true" />
               <div className="program-icon">{program.initials}</div>
               <span>{program.category}</span>
               <h3>{program.title}</h3>
               <p>{program.summary}</p>
+              <p className="program-impact">{program.impact}</p>
               <strong>{program.outcome}</strong>
             </article>
           ))}
@@ -359,10 +431,22 @@ function Impact() {
         <div className="impact-card-grid">
           {impactCards.map((card) => (
             <div className="impact-card" key={card.label}>
-              <strong>{card.value}</strong>
+              <strong className="count-up">{card.value}</strong>
               <span>{card.label}</span>
             </div>
           ))}
+        </div>
+
+        <div className="reach-panel" aria-label="State-wise reach visualization">
+          <h3>State-wise reach</h3>
+          <p>Illustrative reach map for quick scanning. Replace with live state data when available.</p>
+          <div className="reach-map">
+            {reachStates.map((state, index) => (
+              <span className={`reach-dot reach-dot-${index}`} key={state}>
+                {state}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -420,6 +504,15 @@ function Volunteer() {
             <span>Tree plantation</span>
             <span>Fundraising</span>
           </div>
+
+          <div className="testimonial-grid">
+            {volunteerTestimonials.map((item) => (
+              <blockquote className="testimonial-card" key={item.name}>
+                <p>“{item.quote}”</p>
+                <cite>{item.name}</cite>
+              </blockquote>
+            ))}
+          </div>
         </div>
 
         <form className="contact-form" onSubmit={handleSubmit}>
@@ -449,6 +542,40 @@ function Volunteer() {
           </button>
           {formStatus && <p className="form-status">{formStatus}</p>}
         </form>
+      </div>
+    </section>
+  );
+}
+
+function Donation() {
+  return (
+    <section id="donate" className="section-pad donation-section">
+      <div className="container donation-card">
+        <div>
+          <p className="section-label">Donate</p>
+          <h2>Make support visible, simple, and trustworthy.</h2>
+          <p>
+            A clear donation moment helps visitors understand exactly why their contribution matters
+            and gives them confidence before leaving the site to pay securely.
+          </p>
+          <div className="trust-cues" aria-label="Donation trust indicators">
+            <span>Secure payment gateway</span>
+            <span>Registered NGO</span>
+            <span>Impact-led giving</span>
+          </div>
+        </div>
+
+        <div className="donation-actions">
+          {donationExamples.map((example) => (
+            <article className="donation-example" key={example.amount}>
+              <strong>{example.amount}</strong>
+              <p>{example.text}</p>
+            </article>
+          ))}
+          <a className="button button-primary" href="https://rzp.io/l/kWQ87HP" target="_blank" rel="noreferrer">
+            Donate Securely
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -530,16 +657,15 @@ function Footer() {
         </div>
 
         <div>
-          <h3>Official References</h3>
+          <h3>Connect</h3>
           <a href="https://inamigosfoundation.org.in/" target="_blank" rel="noreferrer">
             Official Website
           </a>
-          <a href="https://inamigosfoundation.org.in/page/About-Us" target="_blank" rel="noreferrer">
-            About Us
-          </a>
-          <a href="https://www.linkedin.com/company/inamigos-foundation" target="_blank" rel="noreferrer">
-            LinkedIn
-          </a>
+          {socialLinks.map((link) => (
+            <a href={link.href} key={link.label} target="_blank" rel="noreferrer">
+              {link.label}
+            </a>
+          ))}
         </div>
 
         <div>
@@ -550,6 +676,17 @@ function Footer() {
             </a>
           ))}
         </div>
+
+        <form className="newsletter-form" aria-label="Newsletter subscription form">
+          <h3>Newsletter</h3>
+          <label>
+            <span>Get updates from the mission</span>
+            <input type="email" name="newsletter" placeholder="you@example.com" />
+          </label>
+          <button className="button button-secondary" type="button">
+            Subscribe
+          </button>
+        </form>
       </div>
       <p className="copyright">© {new Date().getFullYear()} InAmigos Foundation awareness website.</p>
     </footer>
@@ -559,8 +696,11 @@ function Footer() {
 export default function App() {
   return (
     <>
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <TrustStrip />
         <About />
@@ -569,6 +709,7 @@ export default function App() {
         <Stories />
         <Volunteer />
         <Faq />
+        <Donation />
         <Contact />
       </main>
       <Footer />

@@ -25,6 +25,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
@@ -57,6 +58,29 @@ textarea {
 
 button {
   cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(216, 166, 41, 0.92);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-160%);
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  background: var(--teal-dark);
+  font-weight: 900;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 .container {
@@ -147,6 +171,17 @@ h3 {
   color: var(--teal);
   background: rgba(255, 255, 255, 0.66);
   transform: translateY(-1px);
+}
+
+.nav-links .nav-donate {
+  color: #fff;
+  background: linear-gradient(135deg, var(--clay), #d67a3d);
+  box-shadow: 0 12px 22px rgba(187, 90, 50, 0.18);
+}
+
+.nav-links .nav-donate:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #a94827, var(--clay));
 }
 
 .menu-toggle {
@@ -256,6 +291,12 @@ h3 {
   margin: 2rem 0;
 }
 
+.hero-note {
+  margin: -1rem 0 1.2rem;
+  color: var(--teal-dark);
+  font-weight: 900;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -329,6 +370,64 @@ h3 {
 .hero-visual {
   position: relative;
   min-height: 600px;
+}
+
+.hero-photo-card {
+  position: absolute;
+  top: 0;
+  right: 1.6rem;
+  z-index: 2;
+  width: min(330px, 72%);
+  min-height: 220px;
+  overflow: hidden;
+  border: 8px solid rgba(255, 255, 255, 0.78);
+  border-radius: 34px;
+  padding: 1.35rem;
+  color: #fff;
+  background:
+    linear-gradient(145deg, rgba(20, 33, 43, 0.18), rgba(20, 33, 43, 0.55)),
+    radial-gradient(circle at 20% 28%, #ffd57a 0 1.9rem, transparent 2rem),
+    radial-gradient(circle at 52% 34%, #fff0c6 0 1.65rem, transparent 1.75rem),
+    radial-gradient(circle at 78% 27%, #f0a66b 0 1.8rem, transparent 1.9rem),
+    linear-gradient(135deg, #1c9b8d, #4668b2 56%, #bb5a32);
+  box-shadow: var(--shadow);
+}
+
+.hero-photo-card::after {
+  position: absolute;
+  inset: auto 1.4rem 1.2rem;
+  height: 74px;
+  border-radius: 24px 24px 12px 12px;
+  background:
+    radial-gradient(circle at 18% 0, #ffd57a 0 1.7rem, transparent 1.8rem),
+    radial-gradient(circle at 51% 0, #fff0c6 0 1.5rem, transparent 1.6rem),
+    radial-gradient(circle at 82% 0, #f0a66b 0 1.65rem, transparent 1.75rem),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+  content: "";
+}
+
+.hero-photo-card span {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero-photo-card strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  max-width: 11ch;
+  margin-top: 0.85rem;
+  font-family: "Palatino Linotype", Georgia, serif;
+  font-size: 1.75rem;
+  line-height: 1.08;
 }
 
 .orb {
@@ -481,6 +580,67 @@ h3 {
     var(--surface);
 }
 
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.45rem;
+}
+
+.highlight-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.highlight-card span {
+  font-size: 1.55rem;
+}
+
+.highlight-card h3 {
+  margin: 0.5rem 0 0.4rem;
+  font-size: 1.08rem;
+}
+
+.highlight-card p {
+  margin-bottom: 0;
+  font-size: 0.94rem;
+}
+
+.timeline {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 78px 1fr;
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.timeline-item > span {
+  display: grid;
+  min-height: 42px;
+  place-items: center;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--teal);
+  font-weight: 900;
+}
+
+.timeline-item h4 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+.timeline-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .check-list {
   display: grid;
   gap: 0.9rem;
@@ -564,7 +724,7 @@ h3 {
 .program-card {
   position: relative;
   overflow: hidden;
-  min-height: 330px;
+  min-height: 390px;
   border-radius: 28px;
   padding: 1.45rem;
   transition:
@@ -584,6 +744,46 @@ h3 {
   height: 7px;
   background: linear-gradient(90deg, var(--clay), var(--gold), var(--teal));
   content: "";
+}
+
+.program-image {
+  height: 120px;
+  margin: -1.45rem -1.45rem 1.15rem;
+  background:
+    radial-gradient(circle at 22% 34%, rgba(255, 255, 255, 0.8) 0 1.2rem, transparent 1.28rem),
+    radial-gradient(circle at 45% 42%, rgba(255, 255, 255, 0.52) 0 1rem, transparent 1.08rem),
+    radial-gradient(circle at 73% 32%, rgba(255, 255, 255, 0.65) 0 1.1rem, transparent 1.18rem),
+    linear-gradient(135deg, rgba(15, 118, 110, 0.8), rgba(216, 166, 41, 0.72));
+}
+
+.program-image-1 {
+  background:
+    radial-gradient(circle at 25% 30%, rgba(255, 255, 255, 0.78) 0 1.2rem, transparent 1.28rem),
+    linear-gradient(135deg, rgba(70, 104, 178, 0.84), rgba(216, 166, 41, 0.72));
+}
+
+.program-image-2 {
+  background:
+    radial-gradient(circle at 64% 32%, rgba(255, 255, 255, 0.74) 0 1.3rem, transparent 1.38rem),
+    linear-gradient(135deg, rgba(181, 101, 118, 0.82), rgba(15, 118, 110, 0.76));
+}
+
+.program-image-3 {
+  background:
+    radial-gradient(circle at 35% 34%, rgba(255, 255, 255, 0.78) 0 1.2rem, transparent 1.28rem),
+    linear-gradient(135deg, rgba(187, 90, 50, 0.8), rgba(70, 104, 178, 0.74));
+}
+
+.program-image-4 {
+  background:
+    radial-gradient(circle at 72% 32%, rgba(255, 255, 255, 0.78) 0 1.2rem, transparent 1.28rem),
+    linear-gradient(135deg, rgba(89, 127, 57, 0.86), rgba(15, 118, 110, 0.72));
+}
+
+.program-image-5 {
+  background:
+    radial-gradient(circle at 42% 34%, rgba(255, 255, 255, 0.78) 0 1.2rem, transparent 1.28rem),
+    linear-gradient(135deg, rgba(70, 104, 178, 0.84), rgba(187, 90, 50, 0.72));
 }
 
 .program-icon {
@@ -619,6 +819,13 @@ h3 {
   display: block;
   margin-top: 1rem;
   color: var(--teal);
+}
+
+.program-impact {
+  border-left: 4px solid var(--gold);
+  padding-left: 0.75rem;
+  color: var(--ink) !important;
+  font-weight: 900;
 }
 
 .impact-layout {
@@ -663,6 +870,78 @@ h3 {
   font-size: clamp(1.7rem, 3vw, 2.35rem);
   line-height: 1;
 }
+
+.count-up {
+  animation: countPop 0.8s ease both;
+}
+
+@keyframes countPop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.reach-panel {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(240px, 0.36fr) 1fr;
+  gap: 1.2rem;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem;
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: var(--soft-shadow);
+}
+
+.reach-panel p {
+  margin-bottom: 0;
+}
+
+.reach-map {
+  position: relative;
+  min-height: 260px;
+  overflow: hidden;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 36% 32%, rgba(216, 166, 41, 0.3), transparent 8rem),
+    radial-gradient(circle at 62% 60%, rgba(15, 118, 110, 0.24), transparent 9rem),
+    linear-gradient(135deg, rgba(255, 246, 232, 0.92), rgba(255, 253, 247, 0.98));
+}
+
+.reach-map::before {
+  position: absolute;
+  inset: 12% 24% 9% 31%;
+  border: 2px dashed rgba(15, 118, 110, 0.24);
+  border-radius: 48% 42% 55% 38%;
+  content: "";
+  transform: rotate(-12deg);
+}
+
+.reach-dot {
+  position: absolute;
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 0.38rem 0.68rem;
+  color: #fff;
+  background: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 900;
+  box-shadow: 0 12px 26px rgba(15, 118, 110, 0.22);
+}
+
+.reach-dot-0 { left: 45%; top: 48%; }
+.reach-dot-1 { left: 28%; top: 56%; }
+.reach-dot-2 { left: 47%; top: 22%; }
+.reach-dot-3 { left: 56%; top: 34%; }
+.reach-dot-4 { left: 62%; top: 58%; }
+.reach-dot-5 { left: 22%; top: 20%; }
 
 .impact-card span {
   display: block;
@@ -722,6 +1001,104 @@ h3 {
   padding: 0.7rem 0.9rem;
   background: rgba(255, 255, 255, 0.7);
   font-weight: 900;
+}
+
+.testimonial-grid {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.35rem;
+}
+
+.testimonial-card {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.testimonial-card p {
+  margin-bottom: 0.7rem;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.testimonial-card cite {
+  color: var(--muted);
+  font-style: normal;
+  font-weight: 900;
+}
+
+.donation-section {
+  padding-top: 2rem;
+}
+
+.donation-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.82fr);
+  gap: 1.5rem;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 38px;
+  padding: 2rem;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(187, 90, 50, 0.96), rgba(93, 42, 35, 0.98)),
+    var(--clay);
+  box-shadow: var(--shadow);
+}
+
+.donation-card .section-label {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.donation-card p {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.trust-cues {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+.trust-cues span {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 0.62rem 0.8rem;
+  background: rgba(255, 255, 255, 0.12);
+  font-weight: 900;
+}
+
+.donation-actions {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.donation-example {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 22px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.donation-example strong {
+  display: block;
+  color: #ffe092;
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.donation-example p {
+  margin: 0.5rem 0 0;
+}
+
+.donation-card .button-primary {
+  color: var(--clay);
+  background: #fff6e8;
+  box-shadow: 0 18px 34px rgba(20, 33, 43, 0.18);
 }
 
 .contact-form {
@@ -852,7 +1229,7 @@ h3 {
 }
 
 .footer-layout {
-  grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(170px, 0.4fr));
+  grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(160px, 0.4fr)) minmax(230px, 0.62fr);
 }
 
 .site-footer h2,
@@ -871,6 +1248,35 @@ h3 {
   color: rgba(255, 255, 255, 0.76);
 }
 
+.newsletter-form {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.newsletter-form label {
+  display: grid;
+  gap: 0.45rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 800;
+}
+
+.newsletter-form input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  padding: 0.85rem 1rem;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.newsletter-form input::placeholder {
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.newsletter-form .button {
+  min-height: 44px;
+}
+
 .copyright {
   width: min(1160px, calc(100% - 2rem));
   margin: 2rem auto 0;
@@ -885,6 +1291,7 @@ h3 {
   .impact-layout,
   .volunteer-layout,
   .faq-layout,
+  .donation-card,
   .footer-layout {
     grid-template-columns: 1fr;
   }
@@ -902,8 +1309,13 @@ h3 {
   }
 
   .program-grid,
-  .story-grid {
+  .story-grid,
+  .highlight-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reach-panel {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -951,12 +1363,14 @@ h3 {
   .metric-row,
   .program-grid,
   .story-grid,
-  .impact-card-grid {
+  .impact-card-grid,
+  .highlight-grid {
     grid-template-columns: 1fr;
   }
 
   .hero-actions,
-  .contact-actions {
+  .contact-actions,
+  .trust-cues {
     flex-direction: column;
   }
 
@@ -970,6 +1384,11 @@ h3 {
 
   .impact-dashboard {
     padding: 1.4rem;
+  }
+
+  .hero-photo-card {
+    right: 0;
+    width: min(320px, 82%);
   }
 
   .floating-card {
@@ -988,6 +1407,27 @@ h3 {
     border-radius: 28px;
     padding: 1.4rem;
   }
+
+  .donation-card {
+    border-radius: 28px;
+    padding: 1.4rem;
+  }
+
+  .reach-map {
+    min-height: 330px;
+  }
+
+  .reach-dot {
+    max-width: 48%;
+    white-space: normal;
+  }
+
+  .reach-dot-0 { left: 36%; top: 48%; }
+  .reach-dot-1 { left: 12%; top: 58%; }
+  .reach-dot-2 { left: 36%; top: 19%; }
+  .reach-dot-3 { left: 50%; top: 34%; }
+  .reach-dot-4 { left: 48%; top: 67%; }
+  .reach-dot-5 { left: 10%; top: 14%; }
 }
 
 @media (max-width: 460px) {
